@@ -1,27 +1,28 @@
 extends CharacterBody3D
 
-# Movement vairables
-const SPEED = 4
-const JUMP_VELOCITY = 4
-const X_SENSE = .01
-const Y_SENSE = .01
-const INVERT = false
 
+var score = 0
+
+# Movement vairables
+const SPEED = 7
+const SPRINTSPEED = 12
+const JUMP_VELOCITY = 6
+const X_SENSE = .005
+const Y_SENSE = .005
+const INVERT = false
+var SPRINT = false
 # Time variables
-const minSpeed = 0.1
+const minSpeed = 0.8
 const multiplierSlow = .2
 const multiplierFast = .4
 const runSpeed = 2
 
 
 # Additional variables for smooth movement
-const ACCELERATION = 1.0
-const DECELERATION = 0.3
-const EXTRA_STEP_DISTANCE = 1.0  # Distance covered in the extra step
 var is_decelerating = false
 var deceleration_start_position = Vector3.ZERO
 const BASE_ACCELERATION = 4
-const BASE_DECELERATION = 1
+const BASE_DECELERATION = 3
 const MIN_EFFECTIVE_ACCELERATION = 0.5  # Minimum acceleration to maintain responsiveness
 
 
@@ -33,13 +34,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var vel: int
 
 func _unhandled_input(event):
-	if event is InputEventMouseButton:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	elif event.is_action_pressed("ui_cancel"):
-		#TODO
-		#add logic for menu here
-		
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		var invert = 1
 		if INVERT:
@@ -58,17 +53,22 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and (is_on_floor()):
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("left", "right", "forward", "back")
 	var direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-
+	var current_speed
+	SPRINT = Input.is_action_pressed("sprint")
+	if SPRINT:
+		current_speed = SPRINTSPEED
+	else:
+		current_speed = SPEED
 	if direction:
-		velocity.x = move_toward(velocity.x, direction.x * SPEED, effective_acceleration * delta)
-		velocity.z = move_toward(velocity.z, direction.z * SPEED, effective_acceleration * delta)
+		velocity.x = move_toward(velocity.x, direction.x * current_speed, effective_acceleration * delta)
+		velocity.z = move_toward(velocity.z, direction.z * current_speed, effective_acceleration * delta)
 		is_decelerating = false
 	else:
 		velocity.x = move_toward(velocity.x, 0, effective_deceleration * delta)

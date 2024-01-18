@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2hmig0ahma6q"]
+
+[ext_resource type="LabelSettings" uid="uid://pj1wvpao6wxv" path="res://Audio/Label.tres" id="1_7tvb8"]
+[ext_resource type="Script" path="res://Scenes/ScoreLabel.gd" id="2_wlekj"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 45.0
+offset_right = 20.0
+offset_bottom = 85.0
+grow_horizontal = 2
+
+[node name="LevelLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -39.0
+offset_right = 148.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score: "
+label_settings = ExtResource("1_7tvb8")
+script = ExtResource("2_wlekj")

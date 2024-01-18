@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtrniu0pmp00l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_su4d1"]
+size = Vector3(15, 0.5, 15)
+
+[sub_resource type="BoxMesh" id="BoxMesh_at740"]
+size = Vector3(15, 0.5, 15)
+
+[node name="Floor" type="StaticBody3D"]
+collision_layer = 3
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_su4d1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_at740")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0275552, 0.99962, 0, -0.99962, -0.0275552, 0, 5.15469, 0)

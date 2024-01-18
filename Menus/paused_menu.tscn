@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://dudgiexbfe80u"]
+
+[ext_resource type="Script" path="res://Menus/paused_menu.gd" id="1_32b3r"]
+[ext_resource type="Theme" uid="uid://4t5hi1g5167h" path="res://Menus/Themes/Button.tres" id="2_rs6ew"]
+[ext_resource type="LabelSettings" uid="uid://pj1wvpao6wxv" path="res://Audio/Label.tres" id="2_w76q1"]
+
+[node name="PausedMenu" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_32b3r")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.333333, 0, 0.0588235, 0.580392)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.5
+offset_top = -182.0
+offset_right = 142.5
+offset_bottom = 182.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/v_separation = 10
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0.027451, 0.0509804, 1)
+theme_override_font_sizes/font_size = 50
+text = "Pause"
+label_settings = ExtResource("2_w76q1")
+
+[node name="ResumeBtn" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_rs6ew")
+text = "Resume Game"
+
+[node name="SettingsBtn" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_rs6ew")
+text = "Settings"
+
+[node name="RespawnBtn" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_rs6ew")
+text = "Restart"
+
+[node name="QuitBtn" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_rs6ew")
+text = "Quit
+"
+
+[connection signal="pressed" from="GridContainer/ResumeBtn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="GridContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="GridContainer/RespawnBtn" to="." method="_on_respawn_btn_pressed"]
+[connection signal="pressed" from="GridContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
