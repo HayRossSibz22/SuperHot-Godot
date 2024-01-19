@@ -1,0 +1,91 @@
+[gd_scene load_steps=5 format=3 uid="uid://bo5fi1lwdjhi4"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/settings_menu.gd" id="1_wftun"]
+[ext_resource type="LabelSettings" uid="uid://pj1wvpao6wxv" path="res://Audio/Label.tres" id="2_ibsyg"]
+[ext_resource type="Theme" uid="uid://4t5hi1g5167h" path="res://Scenes/Menus/Themes/Button.tres" id="3_fdqmr"]
+[ext_resource type="PackedScene" uid="uid://c7hi7lvrvif3p" path="res://Audio/volume_slider.tscn" id="4_5lqjk"]
+
+[node name="SettingsMenu" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_wftun")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.333333, 0, 0.0588235, 0.580392)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 60
+
+[node name="GridContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="SettingsLabel" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Settings"
+label_settings = ExtResource("2_ibsyg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/GridContainer/SettingsLabel"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 80.0
+offset_right = 296.0
+offset_bottom = 204.0
+
+[node name="MasterVolumeLbl" type="Label" parent="MarginContainer/GridContainer/SettingsLabel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fdqmr")
+text = "Master Volume"
+
+[node name="MasterSlider" parent="MarginContainer/GridContainer/SettingsLabel/VBoxContainer" instance=ExtResource("4_5lqjk")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="MusicVolumeLbl" type="Label" parent="MarginContainer/GridContainer/SettingsLabel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fdqmr")
+text = "Music Volume"
+
+[node name="MusicSlider" parent="MarginContainer/GridContainer/SettingsLabel/VBoxContainer" instance=ExtResource("4_5lqjk")]
+layout_mode = 2
+bus_name = "music"
+
+[node name="BackBtn" type="Button" parent="MarginContainer/GridContainer/SettingsLabel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fdqmr")
+text = "Back"
+
+[node name="CheckButton" type="CheckButton" parent="MarginContainer/GridContainer/SettingsLabel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 149.0
+offset_right = 49.0
+offset_bottom = 173.0
+grow_vertical = 0
+
+[connection signal="pressed" from="MarginContainer/GridContainer/SettingsLabel/VBoxContainer/BackBtn" to="." method="_on_back_btn_pressed"]

@@ -1,7 +1,9 @@
+CollisionShape3D
+MeshInstance3D
+StaticBody3D
 Label
 Control
 Button
-CollisionShape3D
 Area3D
 Path3D
 Path2D
@@ -16,8 +18,6 @@ DirectionalLight3D
 SpotLight3D
 TextureRect
 ColorRect
-MeshInstance3D
-StaticBody3D
 CanvasLayer
 CSGBox3D
 CSGCombiner3D

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Get Back To Work"
-run/main_scene="res://Menus/start_menu.tscn"
+run/main_scene="res://Scenes/Menus/start_menu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -22,7 +22,7 @@ buses/default_bus_layout="res://Audio/default_bus_layout.tres"
 [autoload]
 
 BackGroundMusic="*res://Audio/backGroundMusic.tscn"
-ScoreLabel="*res://Scenes/ScoreLabel.gd"
+ScoreLabel="*res://Scenes/Menus/ScoreLabel.gd"
 
 [debug]
 
@@ -33,6 +33,10 @@ settings/stdout/verbose_stdout=true
 [display]
 
 window/size/mode=3
+
+[filesystem]
+
+import/fbx/enabled=false
 
 [input]
 

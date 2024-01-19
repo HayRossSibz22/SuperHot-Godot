@@ -1,6 +1,6 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://pj1wvpao6wxv"]
 
-[ext_resource type="FontFile" uid="uid://80bme2hnuok2" path="res://Fonts/sf-transrobotics/TrueType/SFTransRoboticsCondensed.ttf" id="1_113o4"]
+[ext_resource type="FontFile" uid="uid://80bme2hnuok2" path="res://Imports/Addons/Fonts/sf-transrobotics/TrueType/SFTransRoboticsCondensed.ttf" id="1_113o4"]
 
 [resource]
 font = ExtResource("1_113o4")

@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://4t5hi1g5167h"]
+
+[ext_resource type="FontFile" uid="uid://bhf8ous7iftwn" path="res://Imports/Addons/Fonts/sf-transrobotics/TrueType/SFTransRobotics.ttf" id="1_qnndn"]
+
+[resource]
+default_font = ExtResource("1_qnndn")
+default_font_size = 36

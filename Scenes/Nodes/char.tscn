@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bru0x3ddjjme5"]
+
+[ext_resource type="Script" path="res://Scenes/Nodes/CharacterBody3D.gd" id="1_rdwnh"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_e7ks8"]
+height = 1.6
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2a3ko"]
+points = PackedVector3Array(0.478024, 0.386153, 0.11584, -0.48591, -0.384994, -0.0769153, -0.487204, -0.386029, 0.0675855, 0.285724, -0.702172, 0.0678453, 0.0675197, 0.386107, -0.487207, -0.219073, 0.500171, 0.4, 0.067121, -0.431937, 0.475021, 0.25856, -0.47893, -0.387854, -0.293813, 0.674552, -0.149259, -0.242114, -0.451015, -0.408265, 0.117334, 0.782029, 0.0440288, -0.199409, -0.754274, 0.0438189, 0.210086, 0.453555, 0.424943, 0.449887, -0.406748, 0.186543, 0.42291, 0.403837, -0.242228, -0.460767, 0.384131, -0.172711, -0.289411, -0.379631, 0.398442, -0.433937, 0.381589, 0.233591, 0.475925, -0.384475, -0.12484, -0.26604, 0.403901, -0.408603, 0.0677456, 0.677723, -0.319374, 0.0679574, -0.72822, -0.247397, -0.0769421, -0.385061, -0.4859, -0.149871, 0.725619, 0.212859, 0.0677707, -0.70223, 0.285691, 0.351611, -0.332503, 0.351541, -0.148418, 0.335173, 0.474029, 0.285736, 0.702202, 0.0677536, -0.40862, -0.40384, -0.266042, -0.293812, -0.674552, -0.149259, -0.221101, -0.625105, 0.307729, 0.305377, 0.381583, -0.386382)
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.633184, 0)
+script = ExtResource("1_rdwnh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_e7ks8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_2a3ko")
+
+[node name="Neck" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.509263, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Neck"]
+far = 500.0
