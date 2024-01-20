@@ -1,8 +1,5 @@
 extends CharacterBody3D
 
-
-var score = 0
-
 # Movement vairables
 const SPEED = 7
 const SPRINTSPEED = 12

@@ -27,6 +27,7 @@ func _on_settings_btn_pressed():
 
 func _on_respawn_btn_pressed():
 	_set_pause()
+	ScoreLabel.level = 0
 	get_tree().reload_current_scene()
 
 func _on_quit_btn_pressed():

@@ -14,3 +14,8 @@ res://Scenes/Level/StartingScene.tscn
 res://Ground.tres
 res://Scenes/Menus/ScoreLabel.gd
 res://Base.tscn
+res://Scenes/Nodes/CharacterBody3D.gd
+res://Scenes/Nodes/Boxes/box1.gd
+res://Scenes/Menus/LevelLabel.gd
+res://Scenes/Menus/paused_menu.gd
+res://Imports/Addons/transform_variance/LICENSE.md

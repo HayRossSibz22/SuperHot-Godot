@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://Scenes/Nodes/Boxes/box1.gd" id="1_rxap6"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_784m5"]
-size = Vector3(2, 0.5, 2)
+size = Vector3(3, 0.3, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ns67n"]
-size = Vector3(2, 0.5, 2)
+size = Vector3(3, 0.3, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_df0wf"]
 size = Vector3(2.13106, 2.13657, 1.92154)

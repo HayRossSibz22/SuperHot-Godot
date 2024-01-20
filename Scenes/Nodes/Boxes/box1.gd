@@ -4,7 +4,7 @@ var velocity = Vector3()  # The movement velocity of the box
 var move_speed = 5  # Adjust the speed as needed
 var start_position = Vector3()
 var max_height = 10
-
+var pointCounted = false
 
 func _ready():
 	start_position = global_transform.origin
@@ -31,8 +31,9 @@ var is_player_on_top = false
 func _on_area_body_entered(body):
 	if body.is_in_group("Player"):
 		is_player_on_top = true
-		ScoreLabel.level += 1
-
+		if (not pointCounted):
+			ScoreLabel.level += 1
+			pointCounted = true
 
 func _on_area_body_exited(body):
 	if body.is_in_group("Player"):
